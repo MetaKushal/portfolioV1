@@ -1,61 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kushal Rangoonwala | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-    <header>
-        <nav>
-            <h1>Header</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <!-- call to action button
-            <button>View My Work</button>
-            <button>Contact Me</button> -->
-        </nav>
-    </header>
 
-    <section id="hero">
-        <h2>Aspiring Web Developer</h2>
-        <p>Hello! I'm Kushal Rangoonwala, a passionate computer engineering student with a keen interest in web
-            development.
-            I love creating beautiful and functional websites that provide great user experiences.</p>
-        <a href="#projects" class="btn">View My Work</a>
-        <!-- image add here -->
-    </section>
+  <header>
+    <div class="container nav-container">
+      <h1 class="logo">Kushal Rangoonwala</h1>
+      <nav>
+        <ul>
+          <li><a href="#about.html">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>B.Tech student specializing in AI & Data Science, focused on front-end development.</p>
-    </section>
+  <section id="hero">
+  <div class="container hero-layout">
+
+    <div class="hero-text">
+      <h2>Aspiring Web Developer</h2>
+      <p>
+        B.Tech student in AI & Data Science focused on building responsive,
+        clean and user-friendly web interfaces.
+      </p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="img/pic1.jpeg" alt="Kushal Profile">
+    </div>
+
+  </div>
+</section>
 
 
-    <section id="projects">
-        <h2>Projects Section</h2>
-        <div class="project-grid">
-            <div class="project-card">Portfolio Website</div>
-            <div class="project-card">Coming Soon</div>
+  <section id="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I'm currently strengthening my foundations in HTML, CSS and JavaScript.
+        My goal is to build professional, scalable web applications and secure
+        a strong development internship.
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <!-- projext card 1 -->
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>Responsive portfolio built using HTML and CSS.</p>
         </div>
-    </section>
+        <!-- projext card 2 -->
+        <div class="project-card">
+  <h3>Portfolio Website</h3>
+  <p>
+    A responsive personal portfolio built using HTML and CSS
+    with Flexbox and Grid layout techniques.
+  </p>
+  <a href="https://github.com/MetaKushal/portfolio-v1" target="_blank">
+    View Code →
+  </a>
+</div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: kushal0rangoonwala@gmail.com</p>
-        <p>Github: <a href="#">https://github.com/MetaKushal</a></p>
-        <p>LinkedIn: <a href="#">https://www.linkedin.com/in/kushal-rangoonwala/</a></p> <!-- need to change this -->
-    </section>
+      </div>
+    </div>
+  </section>
 
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: 
+        <a href="mailto:kushal0rangoonwala@gmail.com">
+          kushal0rangoonwala@gmail.com
+        </a>
+      </p>
 
-    <footer>
-        <p>&copy; 2025 Kushal Rangoonwala. All rights reserved.</p>
+      <p>GitHub: 
+        <a href="https://github.com/MetaKushal" target="_blank">
+          MetaKushal
+        </a>
+      </p>
+
+      <p>LinkedIn: 
+        <a href="https://www.linkedin.com/in/kushal-rangoonwala/" target="_blank">
+          LinkedIn Profile
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Kushal Rangoonwala. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
-
 </html>
