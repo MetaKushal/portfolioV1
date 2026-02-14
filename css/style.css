@@ -1,11 +1,49 @@
+/* ========================
+   THEME VARIABLES
+======================== */
+
 :root {
+  /* Light Theme (Default) */
   --primary-color: #0077ff;
   --primary-dark: #005fcc;
+
+  --bg-color: #ffffff;
+  --bg-secondary: #f9f9f9;
+
   --text-color: #1f1f1f;
-  --secondary-text: #555;
-  --background-light: #f9f9f9;
-  --border-light: #eeeeee;
+  --text-secondary: #555;
+
+  --border-color: #eeeeee;
 }
+
+body.dark-theme {
+  --primary-color: #4da3ff;
+  --primary-dark: #1f6fe5;
+
+  --bg-color: #121212;
+  --bg-secondary: #1e1e1e;
+
+  --text-color: #f1f1f1;
+  --text-secondary: #bbbbbb;
+
+  --border-color: #2a2a2a;
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  background: var(--bg-secondary);
+}
+
+
 /* Reset */
 * {
   margin: 0;
@@ -20,8 +58,9 @@ html {
 /* Base */
 body {
   font-family: 'Poppins', sans-serif;
-  color: #1f1f1f;
-  background-color: #ffffff;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.6;
 }
 
@@ -33,8 +72,8 @@ body {
 
 /* Header */
 header {
-  border-bottom: 1px solid #eeeeee;
-  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-color);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -60,13 +99,13 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #0077ff;
+  color: var(--primary-color);
 }
 
 /* Sections */
@@ -102,7 +141,7 @@ h2 {
   width: 100%;
   max-width: 350px;
   border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
 }
 
@@ -123,14 +162,14 @@ h2 {
 .hero-content p {
   max-width: 600px;
   margin: 0 auto 30px auto;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 /* Button */
 .btn {
   display: inline-block;
   padding: 12px 30px;
-  background: #0077ff;
+  background: var(--primary-color);
   color: #ffffff;
   text-decoration: none;
   border-radius: 6px;
@@ -139,7 +178,7 @@ h2 {
 }
 
 .btn:hover {
-  background: #005fcc;
+  background: var(--primary-dark);
   transform: translateY(-2px);
 }
 
@@ -152,7 +191,8 @@ h2 {
 }
 
 .project-card {
-  background: #f9f9f9;
+  background: var(--bg-secondary);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -170,7 +210,7 @@ h2 {
 .project-card a {
   display: inline-block;
   margin-top: 15px;
-  color: #0077ff;
+  color: var(--primary-color);
   font-weight: 500;
   text-decoration: none;
 }
@@ -182,7 +222,7 @@ h2 {
 
 /* Contact Links */
 #contact a {
-  color: #0077ff;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -192,10 +232,10 @@ h2 {
 
 /* Footer */
 footer {
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid var(--border-color);
   padding: 30px 0;
   text-align: center;
-  color: #777;
+  color: var(--text-secondary);
 }
 
 /* Responsive */
