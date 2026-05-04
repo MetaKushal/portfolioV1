@@ -1,0 +1,582 @@
+/* --- 01. Reset & Variables --- */
+/* Simple CSS reset to have a clean slate */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables for colors, fonts, and dimensions */
+:root {
+  /* Pastell Theme Colors */
+  --color-primary: #3d52a0; /* Dark Blue from image */
+  --color-primary-dark: #2d3e8c;
+  --color-secondary: #7091e6; /* Medium Blue from image */
+  --color-tertiary: #8697c4; /* Light Blue from image */
+  --color-quaternary: #adbbda; /* Very Light Blue from image */
+  --color-bg: #f8faff; /* Light background color */
+  --color-card-bg: #ffffff; /* White card background */
+  --color-text-main: #333333;
+  --color-text-muted: #666666;
+  --color-text-light: #888888;
+  --color-tag-bg: #ede8f5; /* Light tag background from image */
+
+  /* Fonts */
+  --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-size-base: 16px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Dimensions & Spacing */
+  --container-max-width: 1200px;
+  --section-spacing: 8rem;
+  --border-radius: 1.5rem; /* Large border radius for cards */
+  --border-radius-sm: 0.75rem;
+
+  /* Other */
+  --transition: all 0.3s ease;
+  --shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.05); /* Soft, natural shadow */
+  --shadow-hover: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+/* --- 02. Base Styles --- */
+html {
+  font-size: var(--font-size-base);
+  scroll-behavior: smooth; /* Smooth scrolling for nav links */
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.6;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* --- 03. Reusable Components --- */
+
+/* Buttons - solid blue and blue outline */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  font-weight: var(--font-weight-medium);
+  border-radius: 2rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-quaternary);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+}
+
+.btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+/* Card - white background, rounded corners, soft shadow, grow on hover */
+.card {
+  background-color: var(--color-card-bg);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+/* GROW WHEN HOVERED EFFECT - This is what you requested */
+.card:hover {
+  transform: translateY(-0.5rem) scale(1.02); /* Slight lift and scale up */
+  box-shadow: var(--shadow-hover); /* Stronger shadow on hover */
+  border-color: var(--color-quaternary); /* Subtle border color on hover */
+}
+
+/* Section number and line (01 - ABOUT) */
+.section-spacing {
+  margin-top: var(--section-spacing);
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-number {
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+/* Tags (e.g., HTML, CSS, JavaScript) */
+.skill-tag {
+  display: inline-block;
+  background-color: var(--color-tag-bg);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- 04. Header --- */
+.header {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  color: var(--color-text-muted);
+}
+
+.nav a:not(.btn-primary):hover {
+  color: var(--color-primary);
+}
+
+/* --- 05. Hero --- */
+.hero {
+  padding: 8rem 0;
+  text-align: center;
+  background: radial-gradient(circle at top right, #f3f7ff 0%, var(--color-bg) 70%);
+}
+
+.hero .tag {
+  display: inline-block;
+  background-color: var(--color-tag-bg);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.hero h1 .highlight {
+  position: relative;
+}
+
+.hero h1 .highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 0;
+  width: 100%;
+  height: 0.2rem;
+  background-color: var(--color-secondary);
+  border-radius: 0.1rem;
+}
+
+.hero p {
+  color: var(--color-text-muted);
+  max-width: 36rem;
+  margin: 0 auto 3rem auto;
+  font-size: 1.125rem;
+}
+
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* --- 06. About --- */
+.about-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about-card p {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-card {
+  padding: 1.5rem 2rem;
+}
+
+.detail-card .label {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.detail-card h3 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.flag {
+  font-style: normal;
+  color: var(--color-text-light);
+}
+
+/* --- 07. Skills --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2.5rem;
+}
+
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skill-tags {
+  margin-top: -0.5rem;
+}
+
+/* --- 08. Projects --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 3rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-number {
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.project-card h3 {
+  font-size: 2.5rem;
+}
+
+.project-details {
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.project-details p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.project-details strong {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-tech {
+  margin-bottom: 2rem;
+}
+
+.project-btns {
+  margin-top: auto;
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- 09. Education --- */
+.education-card {
+  padding: 3rem;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.education-card h3 {
+  font-size: 2rem;
+}
+
+.education-card .tag {
+  background-color: var(--color-tag-bg);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.edu-status {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.edu-desc {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+}
+
+/* --- 10. Contact --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.contact-info-card h3, .contact-form-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-info-card ul {
+  list-style: none;
+  margin-bottom: 3rem;
+}
+
+.contact-info-card li {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-info-card li .icon {
+  font-size: 1.5rem;
+}
+
+.contact-info-card li a:hover {
+  color: var(--color-primary);
+}
+
+/* Contact Form styles */
+.contact-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form-card label {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.contact-form-card input, .contact-form-card textarea {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  background-color: #f7f9fd;
+  border: 1px solid #e1e7f0;
+  font-family: var(--font-family);
+  font-size: 1rem;
+}
+
+.contact-form-card input:focus, .contact-form-card textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-note {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+}
+
+.code-inline {
+  background-color: #f0f3f8;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  font-family: monospace;
+}
+
+/* --- 11. Footer --- */
+.footer {
+  margin-top: var(--section-spacing);
+  padding: 3rem 0;
+  border-top: 1px solid #f0f0f0;
+  background-color: #ffffff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.footer .icon {
+  font-style: normal;
+}
+
+/* --- 12. Media Queries for Responsiveness --- */
+
+/* For smaller tablets */
+@media (max-width: 1024px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .edu-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 14px;
+    --section-spacing: 5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .header .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .nav {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  .hero {
+    padding: 5rem 0;
+  }
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero-btns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .about-card, .detail-card, .skill-card, .project-card, .education-card, .contact-info-card, .contact-form-card {
+    padding: 1.5rem;
+  }
+  .project-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .project-header .project-number {
+    font-size: 2rem;
+  }
+  .project-card h3 {
+    font-size: 2rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-info-card h3, .contact-form-card h3 {
+    font-size: 2rem;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+}
